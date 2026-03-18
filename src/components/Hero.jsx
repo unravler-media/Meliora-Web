@@ -9,9 +9,9 @@ import './Hero.css';
 const PipelineNode = ({ icon, label, status, subtext, delay, isFirst, isLast }) => (
   <motion.div
     className={`pipeline-node ${isFirst ? 'node-warm' : isLast ? 'node-done' : 'node-cool'}`}
-    initial={{ opacity: 0, y: 20, scale: 0.9 }}
-    animate={{ opacity: 1, y: 0, scale: 1 }}
-    transition={{ duration: 0.6, delay, type: 'spring', stiffness: 80 }}
+    initial={{ opacity: 0, y: 20, scale: 0.9, filter: 'blur(10px)' }}
+    animate={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
+    transition={{ duration: 0.8, delay, type: 'spring', stiffness: 80, damping: 15 }}
   >
     <div className="node-icon-ring">
       <div className="node-icon">{icon}</div>
@@ -69,8 +69,8 @@ const Hero = () => {
   const pipelineOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
   // Framer-style masked word reveal animations
-  const titleWordsLine1 = ["The", "Pursuit", "of"];
-  const titleWordsLine2 = ["Better."];
+  const titleWordsLine1 = ["A", "voice", "in", "the", "room."];
+  const titleWordsLine2 = ["A", "mind", "on", "your", "desk."];
 
   const wordContainerVariants = {
     hidden: { opacity: 1 },
@@ -100,8 +100,7 @@ const Hero = () => {
     { icon: <FiMic />, label: 'Audio Input', status: 'live', subtext: 'Listening…', color: '#ff6b4a', isFirst: true },
     { icon: <FiCpu />, label: 'ASR Engine', status: 'processing', subtext: 'Voice → Text', color: '#00d4ff' },
     { icon: <FiMessageSquare />, label: 'Intelligence', status: 'active', subtext: 'Thinking → Executing', color: '#00d4ff' },
-    { icon: <FiVolume2 />, label: 'Voice Synthesis', status: 'streaming', subtext: 'Generating speech…', color: '#00d4ff' },
-    { icon: <FiCheck />, label: 'Audio Output', status: 'done', subtext: 'Playing response', color: '#ff6b4a', isLast: true },
+    { icon: <FiVolume2 />, label: 'Conversing', status: 'streaming', subtext: 'Responding naturally', color: '#ff6b4a', isLast: true },
   ];
 
   return (
@@ -113,7 +112,7 @@ const Hero = () => {
         {/* Badge */}
         <motion.div style={{ y: badgeY }} className="badge hero-badge">
           <span className="live-dot" />
-          Offline Native Interface
+          Fast enough to keep up.
         </motion.div>
 
         {/* Headline */}
