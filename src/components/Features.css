@@ -1,6 +1,14 @@
 .features-section {
   position: relative;
   overflow: hidden;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+}
+
+@media (max-width: 768px) {
+  .features-section {
+    padding-top: 1rem;
+  }
 }
 
 .features-grid {

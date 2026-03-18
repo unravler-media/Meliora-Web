@@ -118,7 +118,7 @@ a {
   top: 0;
   left: 0;
   right: 0;
-  height: 200px;
+  height: 120px;
   background: linear-gradient(to bottom, #000000 0%, transparent 100%);
   z-index: 5;
   pointer-events: none;
@@ -129,7 +129,7 @@ a {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 200px;
+  height: 120px;
   background: linear-gradient(to top, #000000 0%, transparent 100%);
   z-index: 5;
   pointer-events: none;
